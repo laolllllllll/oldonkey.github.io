@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老驴工作室开源软件镜像站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .logo {
+            width: 64px;
+            height: 64px;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 24px;
+        }
+        .app-info {
+            font-size: 20px;
+            color: #333333;
+            line-height: 2;
+        }
+        .asset-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            font-size: 20px;
+        }
+        .file-name {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .file-size {
+            color: #586069;
+        }
+        .get-btn {
+            color: #0366d6;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .get-btn:hover {
+            color: #0550a2;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #24292e; /* 纯不透明 GitHub 风格灰色 */
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .github-logo {
+            width: 120px;
+            height: 120px;
+            fill: #ffffff;
+            /* 渐进闪烁 + 缩放动画 */
+            animation: blinkAndScale 1.2s ease-in-out 2;
+        }
+        @keyframes blinkAndScale {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            25% {
+                opacity: 0.3;
+                transform: scale(1.15);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            75% {
+                opacity: 0.3;
+                transform: scale(1.15);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        footer {
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 14px;
+            color: #6a737d;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://your-donkey-logo.png" alt="老驴图标" class="logo">
+        <h1 class="title">老驴工作室开源软件镜像站</h1>
+    </div>
+
+    <div class="section">
+        <div class="section-title">介绍</div>
+        <div class="app-info">
+            <div>Geek Uninstaller</div>
+            <div>在Windows系统快速卸载应用程序</div>
+            <div>适用于64位x86设备</div>
+            <div>官网geekuninstaller.com</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">资产</div>
+        <div class="asset-row">
+            <a href="#" class="file-name">geek.exe</a>
+            <span class="file-size">大小：7.18MB</span>
+            <span class="get-btn" id="getBtn">获取</span>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 asinino
+    </footer>
+
+    <div class="overlay" id="overlay">
+        <svg class="github-logo" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+    </div>
+
+    <script>
+        const getBtn = document.getElementById('getBtn');
+        const overlay = document.getElementById('overlay');
+        const downloadUrl = 'https://geekuninstaller.com/geek.exe';
+
+        getBtn.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = downloadUrl;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
